@@ -44,7 +44,7 @@ function App() {
     e.preventDefault();
     console.log(data);
     setStep(1)
-    // Ma'lumotlarni yuborish uchun kerakli kerakli yozing
+    // Ma'lumotlarni yuborish uchun kerakli  yozing
   };
   const next = () => {
     if (step < 7) {
@@ -53,7 +53,7 @@ function App() {
     }else{
       setStep(1)
     }
-    // Ma'lumotlarni yuborish uchun kerakli kerakli yozing
+    // Ma'lumotlarni yuborish uchun kerakli  yozing
   };
 
   
