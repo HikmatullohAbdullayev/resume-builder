@@ -8,16 +8,14 @@ import Result from "./components/Result";
 import { Button, Container, Stack, styled } from "@mui/material";
 import { blue, purple } from "@mui/material/colors";
 
- 
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: blue[500],
-    marginTop:"20px",
-    '&:hover': {
-      backgroundColor: blue[700],
-    },
-  }));
-
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(purple[500]),
+  backgroundColor: blue[500],
+  marginTop: "20px",
+  "&:hover": {
+    backgroundColor: blue[700],
+  },
+}));
 
 function App() {
   const [step, setStep] = useState(1);
@@ -38,7 +36,6 @@ function App() {
     til: "",
     about: "",
     qoshimcha: "",
-   
   });
 
   const handleChange = (e) => {
@@ -52,10 +49,9 @@ function App() {
   };
   const next = () => {
     if (step < 7) {
-      
-      setStep((prewStep) => prewStep+1)
-    }else{
-      setStep(1)
+      setStep((prewStep) => prewStep + 1);
+    } else {
+      setStep(1);
     }
     // Ma'lumotlarni yuborish uchun kerakli  yozing
   };
@@ -63,29 +59,48 @@ function App() {
 
   if (step === 1) {
     stepComponent = <Step1 handleChange={handleChange} data={data} />;
-  } else if (step === 2 &&  data.ism && data.familya  ) {
+  } else if (step === 2 && data.ism && data.familya) {
     stepComponent = <Step2 handleChange={handleChange} data={data} />;
-  } else if (step === 3 &&data.yosh && data.jinsi  && data.telefon) {
+  } else if (step === 3 && data.yosh && data.jinsi && data.telefon) {
     stepComponent = <Step3 handleChange={handleChange} data={data} />;
-  } else if (step === 4 && data.kasbi && data.email && data.linkedin && data.telegram ) {
+  } else if (
+    step === 4 &&
+    data.kasbi &&
+    data.email &&
+    data.linkedin &&
+    data.telegram
+  ) {
     stepComponent = <Step4 handleChange={handleChange} data={data} />;
-  } else if (step === 5 && data.skills && data.tajribasi && data.talim && data.til ) {
+  } else if (
+    step === 5 &&
+    data.skills &&
+    data.tajribasi &&
+    data.talim &&
+    data.til
+  ) {
     stepComponent = <Step5 handleChange={handleChange} data={data} />;
-  }  else if (step === 7 && data) {
+  } else if (step === 6 && data.about && data.qoshimcha) {
     stepComponent = <Result handleChange={handleChange} data={data} />;
-  }else{
+  } else {
     stepComponent = <Step1 handleChange={handleChange} data={data} />;
   }
 
   return (
     <Container>
-
-<Stack  width="100%"  textAlign="center" alignItems="center" paddingY="20px" >
-      <form onSubmit={submitData}>
-        {stepComponent}
-        <ColorButton variant="contained"  onClick={next}  type="submit"> Keyingisi </ColorButton> 
-      </form>
-    </Stack>
+      <Stack
+        width="100%"
+        textAlign="center"
+        alignItems="center"
+        paddingY="20px"
+      >
+        <form onSubmit={submitData}>
+          {stepComponent}
+          <ColorButton variant="contained" onClick={next} type="submit">
+            {" "}
+            Keyingisi{" "}
+          </ColorButton>
+        </form>
+      </Stack>
     </Container>
   );
 }

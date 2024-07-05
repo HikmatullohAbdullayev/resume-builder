@@ -1,30 +1,47 @@
+import React from 'react';
+import { TextField, Stack, Typography } from '@mui/material';
 
-
-function Step5({handleChange, data}) {
+function Step5({ handleChange, data }) {
   return (
-      <div>
-      <div className="">
-    <label htmlFor="about">O'zingiz haqingizda yozing</label>
-    <textarea type="text"
-      name="about"
-      id="about"
-      value={data.about}
-      placeholder="About"
-      onChange={handleChange}> O'zingiz haqingizda yozing</textarea>
-   
-  </div>
-  <div className="">
-    <label htmlFor="qoshimcha">Qoshimcha</label>
-    <textarea  type="text"
-      name="qoshimcha"
-      id="qoshimcha"
-      value={data.qoshimcha}
-      placeholder="Qoshimcha"
-      onChange={handleChange}> Qoshimcha</textarea>
- 
-  </div>
+    <Stack gap="20px">
+      <Stack >
+      <Typography variant="h6" component="h6" paddingY="16px">
+      O'zingiz haqingizda yozing
+</Typography>
+        <TextField
+          fullWidth
+          multiline
+          rows={4}
+          label="O'zingiz haqingizda yozing"
+          name="about"
+          id="about"
+          value={data.about}
+          placeholder="O'zingiz haqingizda yozing"
+          onChange={handleChange}
+          variant="outlined"
+          required
+        />
+      </Stack>
       
-  </div>
+      <Stack width="300px" >
+      <Typography variant="h6" component="h6" paddingY="16px">
+      Qo'shimcha ma'lumot
+</Typography>
+        <TextField
+          fullWidth
+          multiline
+          rows={4}
+          label="Qo'shimcha"
+          name="qoshimcha"
+          id="qoshimcha"
+          value={data.qoshimcha}
+          placeholder="Qo'shimcha"
+          onChange={handleChange}
+          variant="outlined"
+          required
+        />
+      </Stack>
+    </Stack>
   );
 }
 
