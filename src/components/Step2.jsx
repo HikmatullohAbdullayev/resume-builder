@@ -1,23 +1,22 @@
-
-
+import { Stack, TextField, RadioGroup, Radio } from "@mui/material";
+// import { InputMask } from '@react-input/mask';
 function Step2({handleChange, data}) {
     return (
         <div>
             <div className="">
-          <label htmlFor="yosh">Yoshingiz</label>
-          <input
-            type="text"
+              <TextField  type="text"
             name="yosh"
             id="yosh"
             value={data.yosh}
-            onChange={handleChange}
-            placeholder="Masalan: 20"
-          />
+            onChange={handleChange} required
+            placeholder="Masalan: 20"  label="Yosh" variant="outlined" />
+          
         </div>
         <div>
+
       <div className="">
         <label htmlFor="ayol">Ayol</label>
-        <input
+        <Radio required
           type="radio"
           name="jinsi"
           id="ayol"
@@ -26,7 +25,7 @@ function Step2({handleChange, data}) {
           onChange={handleChange}
         />
         <label htmlFor="erkak">Erkak</label>
-        <input
+        <Radio required
           type="radio"
           name="jinsi"
           id="erkak"
@@ -37,14 +36,15 @@ function Step2({handleChange, data}) {
       </div>
     </div>
         <div className="">
-          <label htmlFor="telefon">Telefon raqami</label>
-          <input
+          <TextField
             type="text"
             name="telefon"
             id="telefon"
             value={data.telefon}
             onChange={handleChange}
             placeholder="Masalan: + 998 93 123 45 67"
+             label="Telefon" variant="outlined"
+             required
           />
         </div>
             

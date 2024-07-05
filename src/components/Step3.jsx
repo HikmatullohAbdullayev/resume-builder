@@ -1,55 +1,51 @@
-
+import { Stack, TextField,  } from "@mui/material";
 
 function Step3({handleChange, data}) {
     return (
-        <div>
-            <div className="">
-          <label htmlFor="kasbi">Kasb</label>
-          <input
-            type="text"
+        <Stack gap="20px">
+            <Stack className="">
+          <TextField 
+          type="text"
             name="kasbi"
             id="kasbi"
             value={data.kasbi}
-            onChange={handleChange}
-            placeholder="Masalan: Frontend dasturchi"
-          />
-        </div>
-            <div className="">
-          <label htmlFor="email">Email</label>
-          <input
+            onChange={handleChange} label="Kasbi"
+            placeholder="Masalan: Frontend dasturchi" required />
+         
+        </Stack>
+            <Stack className="">
+          <TextField
             type="email"
             name="email"
             id="email"
             value={data.email}
-            onChange={handleChange}
-            placeholder="Masalan: example@gmail.com"
+            onChange={handleChange} label="Email"
+            placeholder="Masalan: example@gmail.com" required
           />
-        </div>
-        <div className="">
-          <label htmlFor="linkedin">Linkedin</label>
-          <input
+        </Stack>
+        <Stack className="">
+          <TextField
             type="text"
             name="linkedin"
             id="linkedin"
             value={data.linkedin}
-            onChange={handleChange}
-            placeholder="URl manzil qoldiring"
+            onChange={handleChange} label="Linkedin"
+            placeholder="URl manzil qoldiring" required
           />
-        </div>
+        </Stack>
       
-        <div className="">
-          <label htmlFor="telegram">telegram</label>
-          <input
+        <Stack className="">
+          <TextField
             type="text"
             name="telegram"
             id="telegram"
             value={data.telegram}
-            onChange={handleChange}
-            placeholder="Masalan: @Falonchi"
+            onChange={handleChange} label="Telegram"
+            placeholder="Masalan: @Falonchi" required
           />
-        </div>
+        </Stack>
             
-        </div>
+        </Stack>
     );
 }
 
