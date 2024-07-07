@@ -86,9 +86,8 @@ function App() {
   }
 
   return (
-    <Container>
+    <Container maxWidth="sm">
       <Stack
-        width="100%"
         textAlign="center"
         alignItems="center"
         paddingY="20px"

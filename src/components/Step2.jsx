@@ -4,7 +4,7 @@ function Step2({handleChange, data}) {
     return (
         <div>
             <div className="">
-              <TextField  type="text"
+              <TextField  type="number"
             name="yosh"
             id="yosh"
             value={data.yosh}
@@ -37,7 +37,7 @@ function Step2({handleChange, data}) {
     </div>
         <div className="">
           <TextField
-            type="text"
+           type="number"
             name="telefon"
             id="telefon"
             value={data.telefon}
