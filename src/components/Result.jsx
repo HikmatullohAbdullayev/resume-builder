@@ -1,63 +1,42 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Divider } from '@mui/material';
 
 function Result({ data }) {
   return (
-    <Box sx={{ padding: 4, backgroundColor: '#f5f5f5', borderRadius: 2 }}>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ padding: 4, backgroundColor: '#fff', borderRadius: 2, boxShadow: 3, maxWidth: 600, margin: '0 auto' }}>
+      <Typography variant="h4" gutterBottom align="center" color="primary">
         Ma'lumotlar
       </Typography>
-
-      <Typography variant="body1">
-        <strong>Ism:</strong> {data.ism}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Familya:</strong> {data.familya}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Yosh:</strong> {data.yosh}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Jinsi:</strong> {data.jinsi}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Telefon:</strong> {data.telefon}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Kasbi:</strong> {data.kasbi}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Email:</strong> {data.email}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Telegram:</strong> {data.telegram}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Instagram:</strong> {data.instagram}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Linkedin:</strong> {data.linkedin}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Skills:</strong> {data.skills}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Tajribasi:</strong> {data.tajribasi}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Talim:</strong> {data.talim}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Til:</strong> {data.til}
-      </Typography>
-      <Typography variant="body1">
-        <strong>About:</strong> {data.about}
-      </Typography>
-      <Typography variant="body1">
-        <strong>Qoshimcha:</strong> {data.qoshimcha}
-      </Typography>
-
       
+      <Divider sx={{ marginBottom: 2 }} />
+
+      {[
+        { label: "Ism", value: data.ism },
+        { label: "Familya", value: data.familya },
+        { label: "Yosh", value: data.yosh },
+        { label: "Jinsi", value: data.jinsi },
+        { label: "Telefon", value: data.telefon },
+        { label: "Kasbi", value: data.kasbi },
+        { label: "Email", value: data.email },
+        { label: "Telegram", value: data.telegram },
+        { label: "Linkedin", value: data.linkedin },
+        { label: "Skills", value: data.skills },
+        { label: "Tajribasi", value: data.tajribasi },
+        { label: "Talim", value: data.talim },
+        { label: "Til", value: data.til },
+        { label: "About", value: data.about },
+        { label: "Qoshimcha", value: data.qoshimcha }
+      ].map((item, index) => (
+        <Box key={index} sx={{ marginBottom: 2 }}>
+          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+            {item.label}:
+          </Typography>
+          <Typography variant="body1" sx={{ marginLeft: 1 }}>
+            {item.value}
+          </Typography>
+          {index < 15 && <Divider sx={{ marginTop: 2 }} />}
+        </Box>
+      ))}
     </Box>
   );
 }
