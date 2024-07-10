@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
@@ -25,11 +26,6 @@ function App() {
     yosh: "",
     jinsi: "",
     telefon: "",
-    kasbi: "",
-    email: "",
-    telegram: "",
-    instagram: "",
-    linkedin: "",
     skills: "",
     tajribasi: "",
     talim: "",
@@ -47,56 +43,52 @@ function App() {
     e.preventDefault();
     console.log(data);
   };
+
   const next = () => {
-    if (step < 7) {
-      setStep((prewStep) => prewStep + 1);
+    if (step === 1 && data.ism && data.familya) {
+      setStep((prev) => prev + 1);
+    } else if (step === 2 && data.yosh && data.jinsi && data.telefon) {
+      setStep((prev) => prev + 1);
+    } else if (
+      step === 3 &&
+      data.skills &&
+      data.tajribasi &&
+      data.talim &&
+      data.til
+    ) {
+      setStep((prev) => prev + 1);
+    } else if (step === 4 && data.about && data.qoshimcha) {
+      setStep((prev) => prev + 1);
+    } else if (step === 5) {
+      setStep(1);
     } else {
       setStep(1);
     }
-    // Ma'lumotlarni yuborish uchun kerakli  yozing
   };
+
   let stepComponent;
 
   if (step === 1) {
     stepComponent = <Step1 handleChange={handleChange} data={data} />;
-  } else if (step === 2 && data.ism && data.familya) {
+  } else if (step === 2) {
     stepComponent = <Step2 handleChange={handleChange} data={data} />;
-  } else if (step === 3 && data.yosh && data.jinsi && data.telefon) {
-    stepComponent = <Step3 handleChange={handleChange} data={data} />;
-  } else if (
-    step === 4 &&
-    data.kasbi &&
-    data.email &&
-    data.linkedin &&
-    data.telegram
-  ) {
+  } else if (step === 3) {
     stepComponent = <Step4 handleChange={handleChange} data={data} />;
-  } else if (
-    step === 5 &&
-    data.skills &&
-    data.tajribasi &&
-    data.talim &&
-    data.til
-  ) {
+  } else if (step === 4) {
     stepComponent = <Step5 handleChange={handleChange} data={data} />;
-  } else if (step === 6 && data.about && data.qoshimcha) {
-    stepComponent = <Result handleChange={handleChange} data={data} />;
+  } else if (step === 5) {
+    stepComponent = <Result data={data} />;
   } else {
     stepComponent = <Step1 handleChange={handleChange} data={data} />;
   }
 
   return (
     <Container maxWidth="sm">
-      <Stack
-        textAlign="center"
-        alignItems="center"
-        paddingY="20px"
-      >
+      <Stack textAlign="center" alignItems="center" paddingY="20px">
         <form onSubmit={submitData}>
           {stepComponent}
-          <ColorButton variant="contained" onClick={next} type="submit">
-            {" "}
-            Keyingisi{" "}
+          <ColorButton variant="contained" onClick={next}>
+            Keyingisi
           </ColorButton>
         </form>
       </Stack>
